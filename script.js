@@ -54,8 +54,12 @@ btn.addEventListener("click", function () {
     block.style.height = blockSize + "px";
     conteiner.appendChild(block);
 
+    let saturation = 0;
+
     block.addEventListener("mouseover", function () {
       block.style.backgroundColor = "blue";
+      block.style.opacity = 0.2 + saturation;
+      saturation += 0.2;
     });
   }
 });
@@ -83,6 +87,17 @@ for (let i = 0; i <= 255; i++) {
   conteiner.appendChild(block);
 
   block.addEventListener("mouseover", function () {
-    block.style.backgroundColor = "blue";
+    const colors = [
+      "red",
+      "blue",
+      "green",
+      "yellow",
+      "purple",
+      "orange",
+      "pink",
+      "brown",
+    ];
+    block.style.backgroundColor =
+      colors[Math.floor(Math.random() * colors.length)];
   });
 }
